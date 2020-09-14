@@ -1,0 +1,25 @@
+.wrapper {
+    background-color: #d4edda;
+}
+.header {
+    text-align: center;
+    background-color: #ff9e25;
+    padding: 10px 0;
+
+}
+.body {
+    padding-bottom: 10px;
+}
+p {
+    margin-bottom: 0 !important;
+}
+
+textarea {
+    width: 100%;
+    border-radius: 4px;
+}
+.btn-publish {
+    color: #000 !important;
+    background-color: #67aefb !important;
+    border-color: #007bff !important;
+}

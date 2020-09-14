@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: note
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: note
+  template:
+    metadata:
+      labels:
+        app: note
+    spec:
+      containers:
+        - name: app
+          image: "MY IMAGE"/note-app:v1 #put your azure image here
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MONGO_URL
+              value: mongodb://mongo:27017/dev
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: note
+spec:
+  selector:
+    app: note
+  ports:
+    - port: 80
+      targetPort: 8080
+  type: LoadBalancer
